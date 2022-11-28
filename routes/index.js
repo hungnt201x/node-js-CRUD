@@ -19,21 +19,26 @@ router.get('/showWallpapers', function (req, res) {
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, 'uploads')
-    }, filename: function (req, file, cb) {
+    },
+    filename: function (req, file, cb) {
         let ect = path.extname(file.originalname)
         cb(null, Date.now() + '-' + Math.random() + '-' + file.originalname)
     }
 })
 
 var upload = multer({
-    storage: storage, limits: {
+    storage: storage,
+    limits: {
         fileSize: 2 * 1024 * 1024,
     }
 }).single('avatar')
 
 const Wallpaper = new mongoose.Schema({
     // id: Number,
-    pathImg: String, ngayTao: String, moTa: String, tieuDe: String,
+    pathImg: String,
+    ngayTao: String,
+    moTa: String,
+    tieuDe: String,
 })
 
 var Wall = mongoose.model('Wallpaper', Wallpaper);
@@ -90,17 +95,17 @@ router.get('/image/:imageName', function (req, res) {
 router.get('/update/:id', async function (req, res) {
     const img = await Wall.findById(req.params.id)
     console.log(img)
-    res.render('update', {img: img})
+    res.render('update',{img: img})
 })
 
-router.post('/updateImage/:id', async function (req, res) {
+router.post('/updateImage/:id', async function (req, res){
     upload(req, res, function (err) {
         const _id = req.params.id;
         const ngayTaoUpdate = req.body.ngayTaoUpdate;
         const moTaUpdate = req.body.moTaUpdate;
         const tieuDeUpdate = req.body.tieuDeUpdate;
 
-        Wall.updateOne({_id: _id}, {
+        Wall.updateOne({_id: _id},{
             ...req.body
             // pathImg: `http://localhost:3000/image/${req.file.filename}`,
         }).then(data => {

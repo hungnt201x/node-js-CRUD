@@ -9,25 +9,25 @@
 <div class="position-absolute top-50 start-50 translate-middle border border-primary p-2 ">
     <h1 class="m-3">Update</h1>
     <form method="post" action="/updateImage/<%=img._id%>" enctype="multipart/form-data">
-<!--        <label>Chon Wallpaper: </label>-->
-<!--        <input name="avatarUpdate" type="file"> <br>-->
+        <label>Chon Wallpaper: </label>
+        <input name="avatar" type="file"> <br>
 
         <div class="form-group m-3">
             <label>Ngay tao: </label>
-            <input type="date"  name="ngayTaoUpdate" placeholder="Chon ngay tao" value="<%=img.ngayTao%>"> <br>
+            <input type="date"  name="ngayTao" placeholder="Chon ngay tao" value="<%=img.ngayTao%>"> <br>
         </div>
 
         <div class="form-group m-3">
             <label>Mo ta: </label>
-            <input name="moTaUpdate" placeholder="Nhap mo ta" value="<%=img.moTa%>"> <br>
+            <input name="moTa" placeholder="Nhap mo ta" value="<%=img.moTa%>"> <br>
         </div>
 
         <div class="form-group m-3">
             <label>Tieu de: </label>
-            <input name="tieuDeUpdate" placeholder="Nhap tieu de" value="<%=img.tieuDe%>"> <br>
+            <input name="tieuDe" placeholder="Nhap tieu de" value="<%=img.tieuDe%>"> <br>
         </div>
         <button class="btn btn-danger m-3" type="submit">Update</button>
-<!--        <a class="btn btn-success" href="danhSach">Show Wallpapers</a>-->
+        <!--        <a class="btn btn-success" href="danhSach">Show Wallpapers</a>-->
 
     </form>
 </div>
