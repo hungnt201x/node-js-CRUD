@@ -1,0 +1,10 @@
+{
+    "version": 2,
+    "name": "node-js-crudmg-y9v4",
+    "builds": [
+       { "src": "app.js", "use": "@vercel/node" }
+    ],
+    "routes": [
+       { "src": "/(.*)", "dest": "/app.js" }
+    ]
+ }
